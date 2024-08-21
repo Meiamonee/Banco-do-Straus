@@ -1,1 +1,8 @@
 
+create database sistemaBancario;
+use sistemaBancario;
+CREATE TABLE cliente(nome varchar(100), cpf varchar(100) PRIMARY key);
+insert into cliente(nome,cpf) values ('guilherme', 1000);
+describe cliente;
+
+CREATE TABLE conta( numeroConta varchar(100) primary key, saldo float);
