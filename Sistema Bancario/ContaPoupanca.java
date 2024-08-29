@@ -1,14 +1,15 @@
-public class ContaPoupanca extends Conta{
-    
+public class ContaPoupanca extends Conta {
     private float taxaRendimento;
 
-    public ContaPoupanca(String numeroConta, float saldo, String titular) {
+    public ContaPoupanca(String numeroConta, float saldo, String titular, float taxaRendimento) {
         super(numeroConta, saldo, titular);
-        //TODO Auto-generated constructor stub
+        this.taxaRendimento = taxaRendimento;
     }
 
-    public void atualizarSaldo(){
-
+    public void atualizarSaldo() {
+        float rendimento = getSaldo() * (taxaRendimento / 100);
+        deposito(rendimento);
+        System.out.println("Saldo atualizado com rendimento de R$ " + rendimento + ". Novo saldo: R$ " + getSaldo());
     }
 
     public float getTaxaRendimento() {
