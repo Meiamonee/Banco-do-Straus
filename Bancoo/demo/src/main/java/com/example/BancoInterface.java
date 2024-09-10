@@ -29,7 +29,7 @@ public class BancoInterface {
         JPanel imagePanel = new JPanel();
         JLabel imageLabel = new JLabel();
         try {
-            // Carregar a imagem PNG
+            
             Image img = ImageIO.read(new File("C:\\Users\\Pedro\\OneDrive\\Área de Trabalho\\Bancoo\\demo\\src\\main\\java\\com\\example\\banco-do-brasil-200x150.jpg")); // Substitua pelo caminho da sua imagem
             ImageIcon icon = new ImageIcon(img.getScaledInstance(150, 100, Image.SCALE_SMOOTH));
             imageLabel.setIcon(icon);
@@ -43,59 +43,59 @@ public class BancoInterface {
         JPanel formPanel = new JPanel();
         formPanel.setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(5, 5, 5, 5); // Definir margens entre os componentes
+        gbc.insets = new Insets(5, 5, 5, 5); 
 
-        // Label e campo para o número da conta
+      
         gbc.gridx = 0;
         gbc.gridy = 0;
         formPanel.add(new JLabel("Número da Conta:"), gbc);
 
         loginNumeroContaField = new JTextField();
-        loginNumeroContaField.setPreferredSize(new Dimension(150, 25)); // Definindo tamanho menor para o campo de texto
+        loginNumeroContaField.setPreferredSize(new Dimension(150, 25));
         gbc.gridx = 1;
         formPanel.add(loginNumeroContaField, gbc);
 
-        // Label e campo para o titular
+       
         gbc.gridx = 0;
         gbc.gridy = 1;
         formPanel.add(new JLabel("Titular:"), gbc);
 
         loginTitularField = new JTextField();
-        loginTitularField.setPreferredSize(new Dimension(150, 25)); // Definindo tamanho menor para o campo de texto
+        loginTitularField.setPreferredSize(new Dimension(150, 25)); 
         gbc.gridx = 1;
         formPanel.add(loginTitularField, gbc);
 
-        // Botões de Login e Criar Conta
+       
         JButton loginButton = new JButton("Login");
-        loginButton.setPreferredSize(new Dimension(100, 25)); // Definindo tamanho menor para o botão
+        loginButton.setPreferredSize(new Dimension(100, 25)); 
         gbc.gridx = 0;
         gbc.gridy = 2;
         formPanel.add(loginButton, gbc);
 
         JButton criarContaButton = new JButton("Criar Conta");
-        criarContaButton.setPreferredSize(new Dimension(100, 25)); // Definindo tamanho menor para o botão
+        criarContaButton.setPreferredSize(new Dimension(100, 25));
         gbc.gridx = 1;
         formPanel.add(criarContaButton, gbc);
 
         loginPanel.add(formPanel, BorderLayout.CENTER);
 
-        // Painel de operações
+       
         JPanel operacoesPanel = new JPanel();
         operacoesPanel.setLayout(new GridBagLayout());
 
-        // Botões de operações com tamanho reduzido
+    
         JButton saldoButton = new JButton("Mostrar Saldo");
-        saldoButton.setPreferredSize(new Dimension(150, 30)); // Tamanho menor para o botão
+        saldoButton.setPreferredSize(new Dimension(150, 30)); 
         JButton adicionarSaldoButton = new JButton("Adicionar Saldo");
-        adicionarSaldoButton.setPreferredSize(new Dimension(150, 30)); // Tamanho menor para o botão
+        adicionarSaldoButton.setPreferredSize(new Dimension(150, 30)); 
         JButton transferirButton = new JButton("Transferir Saldo");
-        transferirButton.setPreferredSize(new Dimension(150, 30)); // Tamanho menor para o botão
+        transferirButton.setPreferredSize(new Dimension(150, 30)); 
         JButton excluirContaButton = new JButton("Excluir Conta");
-        excluirContaButton.setPreferredSize(new Dimension(150, 30)); // Tamanho menor para o botão
+        excluirContaButton.setPreferredSize(new Dimension(150, 30)); 
         JButton sairButton = new JButton("Sair da Conta");
-        sairButton.setPreferredSize(new Dimension(150, 30)); // Tamanho menor para o botão
+        sairButton.setPreferredSize(new Dimension(150, 30)); 
 
-        // Organizando botões no painel de operações
+      
         gbc.gridx = 0;
         gbc.gridy = 0;
         operacoesPanel.add(saldoButton, gbc);
@@ -112,7 +112,7 @@ public class BancoInterface {
         gbc.gridy = 4;
         operacoesPanel.add(sairButton, gbc);
 
-        // Adicionando painéis ao CardLayout
+        
         mainPanel.add(loginPanel, "Login");
         mainPanel.add(operacoesPanel, "Operações");
 
@@ -124,15 +124,15 @@ public class BancoInterface {
             }
         });
 
-        // Ação do botão de criar conta (aqui você pode adicionar a lógica para criação de conta)
+        
         criarContaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Código para criar uma nova conta
+                
             }
         });
 
-        // Ação do botão "Mostrar Saldo"
+        
         saldoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -142,7 +142,7 @@ public class BancoInterface {
             }
         });
 
-        // Ação do botão "Adicionar Saldo"
+        
         adicionarSaldoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -155,7 +155,7 @@ public class BancoInterface {
             }
         });
 
-        // Ação do botão "Transferir Saldo"
+       
         transferirButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -168,7 +168,7 @@ public class BancoInterface {
             }
         });
 
-        // Ação do botão "Excluir Conta"
+        
         excluirContaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -180,7 +180,7 @@ public class BancoInterface {
             }
         });
 
-        // Ação do botão "Sair da Conta"
+        
         sairButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -195,7 +195,7 @@ public class BancoInterface {
         frame.setVisible(true);
     }
 
-    // Método para realizar o login
+   
     private void login() {
         String numeroConta = loginNumeroContaField.getText();
         String titular = loginTitularField.getText();
