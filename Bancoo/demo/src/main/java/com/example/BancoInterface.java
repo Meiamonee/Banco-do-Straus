@@ -25,12 +25,11 @@ public class BancoInterface {
         JPanel loginPanel = new JPanel();
         loginPanel.setLayout(new BorderLayout());
 
-        // Adicionar imagem no topo
         JPanel imagePanel = new JPanel();
         JLabel imageLabel = new JLabel();
         try {
             
-            Image img = ImageIO.read(new File("C:\\Users\\Pedro\\OneDrive\\Área de Trabalho\\Bancoo\\demo\\src\\main\\java\\com\\example\\banco-do-brasil-200x150.jpg")); // Substitua pelo caminho da sua imagem
+            Image img = ImageIO.read(new File("C:\\Users\\Pedro\\OneDrive\\Área de Trabalho\\Bancoo\\demo\\src\\main\\java\\com\\example\\banco-do-brasil-200x150.jpg"));
             ImageIcon icon = new ImageIcon(img.getScaledInstance(150, 100, Image.SCALE_SMOOTH));
             imageLabel.setIcon(icon);
         } catch (IOException e) {
