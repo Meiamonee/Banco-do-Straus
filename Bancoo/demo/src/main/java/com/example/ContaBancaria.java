@@ -36,14 +36,14 @@ public class ContaBancaria {
              PreparedStatement insertStmt = conn.prepareStatement(insertSql);
              PreparedStatement selectStmt = conn.prepareStatement(selectSql)) {
 
-            
+         
             insertStmt.setString(1, conta.getTitular());
             insertStmt.setDouble(2, conta.getSaldo());
             insertStmt.setString(3, conta.getNumeroConta());
             insertStmt.executeUpdate();
             System.out.println("Conta criada com sucesso!");
 
-          
+         
             selectStmt.setString(1, conta.getNumeroConta());
             try (ResultSet rs = selectStmt.executeQuery()) {
                 if (rs.next()) {
@@ -109,7 +109,7 @@ public class ContaBancaria {
         }
     }
 
-  
+
     public static void transferirSaldo(String numeroContaOrigem, String numeroContaDestino, double valor) {
         String selectSql = "SELECT saldo FROM conta_bancaria WHERE numero_conta = ?";
         String updateOrigemSql = "UPDATE conta_bancaria SET saldo = saldo - ? WHERE numero_conta = ?";
@@ -118,19 +118,19 @@ public class ContaBancaria {
         try (Connection conn = DatabaseConnection.getConnection()) {
             conn.setAutoCommit(false); 
 
-          
+            
             try (PreparedStatement selectStmt = conn.prepareStatement(selectSql)) {
                 selectStmt.setString(1, numeroContaOrigem);
                 try (ResultSet rs = selectStmt.executeQuery()) {
                     if (rs.next() && rs.getDouble("saldo") >= valor) {
-                    
+                        
                         try (PreparedStatement updateOrigemStmt = conn.prepareStatement(updateOrigemSql)) {
                             updateOrigemStmt.setDouble(1, valor);
                             updateOrigemStmt.setString(2, numeroContaOrigem);
                             updateOrigemStmt.executeUpdate();
                         }
 
-                       
+                        
                         try (PreparedStatement updateDestinoStmt = conn.prepareStatement(updateDestinoSql)) {
                             updateDestinoStmt.setDouble(1, valor);
                             updateDestinoStmt.setString(2, numeroContaDestino);
@@ -172,7 +172,7 @@ public class ContaBancaria {
         }
     }
     
-    
+   
 public static ContaBancaria consultarConta(String numeroConta, String titular) {
     String sql = "SELECT * FROM conta_bancaria WHERE numero_conta = ? AND titular = ?";
     try (Connection conn = DatabaseConnection.getConnection();
@@ -182,7 +182,7 @@ public static ContaBancaria consultarConta(String numeroConta, String titular) {
         stmt.setString(2, titular);
         try (ResultSet rs = stmt.executeQuery()) {
             if (rs.next()) {
-                
+               
                 ContaBancaria conta = new ContaBancaria(
                         rs.getString("titular"),
                         rs.getDouble("saldo"),
@@ -196,7 +196,7 @@ public static ContaBancaria consultarConta(String numeroConta, String titular) {
     } catch (SQLException e) {
         System.err.println("Erro ao consultar conta: " + e.getMessage());
     }
-    return null;
+    return null; 
 }
 
 }

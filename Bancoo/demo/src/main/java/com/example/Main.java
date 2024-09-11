@@ -21,20 +21,6 @@ public class Main {
             switch (escolhaInicial) {
                 case 1:
                     
-                    System.out.println("=== Criar Nova Conta ===");
-                    System.out.print("Digite o nome do titular: ");
-                    String titular = scanner.nextLine();
-                    System.out.print("Digite o saldo inicial: ");
-                    double saldo = scanner.nextDouble();
-                    scanner.nextLine(); 
-                    System.out.print("Digite o número da conta: ");
-                    String numeroConta = scanner.nextLine();
-
-                   
-                    contaCriada = new ContaBancaria(titular, saldo, numeroConta);
-                    ContaBancaria.criarConta(contaCriada);
-                    System.out.println("Conta criada com sucesso! Você será redirecionado para o menu principal.");
-                    continue; 
 
                 case 2:
                     
